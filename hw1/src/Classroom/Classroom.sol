@@ -38,6 +38,11 @@ interface IClassroomV2 {
 contract StudentV2 {
     function register() external view returns (uint256) {
         // TODO: please add your implementaiton here
+        if (IClassroomV2(msg.sender).isEnrolled()){
+            return 123;
+        }else{
+            return 2000;
+        }
     }
 }
 
@@ -45,5 +50,6 @@ contract StudentV2 {
 contract StudentV3 {
     function register() external view returns (uint256) {
         // TODO: please add your implementaiton here
+        
     }
 }
