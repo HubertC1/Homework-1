@@ -48,8 +48,14 @@ contract StudentV2 {
 
 /* Problem 3 Interface & Contract */
 contract StudentV3 {
+
     function register() external view returns (uint256) {
-        // TODO: please add your implementaiton here
-        
+        // Check the remaining gas
+        if (gasleft() < 7000) {
+            return 123;
+        } else {
+            return 2000;
+        }
     }
+
 }
