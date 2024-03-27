@@ -3,10 +3,30 @@ pragma solidity ^0.8.0;
 
 /* Problem 1 Interface & Contract */
 contract StudentV1 {
-    // Note: You can declare some state variable
+    // State variable to keep track of the number of times `register` has been called
+    uint256 private registerCallCount;
+
+    // Constructor to initialize state variables (optional in this case)
+    constructor() {
+        registerCallCount = 0;
+    }
 
     function register() external returns (uint256) {
-        // TODO: please add your implementaiton here
+        // Increase the count each time the function is called
+        registerCallCount++;
+
+        // Check the number of times the function has been called
+        if (registerCallCount == 1) {
+            // Return 2000 the first time the function is called
+            return 2000;
+        } else if (registerCallCount == 2) {
+            // Return 123 the second time the function is called
+            return 123;
+        } else {
+            // Optional: Define behavior for subsequent calls, if necessary
+            // For example, return 0 for all calls after the second call
+            return 0;
+        }
     }
 }
 
